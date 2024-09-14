@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewProductActivity"
+    tools:ignore="HardcodedText, Autofill, ContentDescription,UnusedAttribute">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left|top"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/mercadApp"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/azul_oscurito"
+        android:padding="15sp"
+        android:text="Nuevo Producto"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/txtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:textSize="24sp"
+        />
+
+    <EditText
+        android:id="@+id/txtPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Precio ($)"
+        android:inputType="numberDecimal"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/listCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_margin="10dp" />
+
+    <EditText
+        android:id="@+id/txtObservaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Observaciones"
+        android:inputType="text|textMultiLine"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnCrear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:text="@string/ingresar"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="15dp"
+        android:text="@string/cancelar"
+        android:textSize="18sp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_marginEnd="15sp"
+        android:tooltipText="Nuevo Producto"
+        />
+
+</LinearLayout>

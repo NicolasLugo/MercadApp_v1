@@ -1,0 +1,20 @@
+<resources>
+    <string name="login">Ingrese sus credenciales</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="salir">Salir</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="nuevo_usuario">¿Nuevo usuario?</string>
+    <string name="inicio">Inicio</string>
+    <string name="historico">Histórico</string>
+    <string name="informes">Informes</string>
+    <string-array name="generos">
+        <item>Femenino</item>
+        <item>Masculino</item>
+    </string-array>
+    <string-array name="categorias">
+        <item>Bebida</item>
+        <item>Comida</item>
+        <item>Ropa</item>
+    </string-array>
+</resources>

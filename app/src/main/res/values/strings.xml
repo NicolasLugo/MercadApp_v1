@@ -8,6 +8,8 @@
     <string name="inicio">Inicio</string>
     <string name="historico">Histórico</string>
     <string name="informes">Informes</string>
+    <string name="MercadApp">MercadApp</string>
+
     <string-array name="generos">
         <item>Femenino</item>
         <item>Masculino</item>

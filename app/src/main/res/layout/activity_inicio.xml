@@ -14,7 +14,7 @@
         android:layout_gravity="left|top"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
-        android:src="@drawable/mercadApp"
+        android:src="@drawable/mercad_app"
         tools:ignore="RtlHardcoded"/>
 
     <TextView

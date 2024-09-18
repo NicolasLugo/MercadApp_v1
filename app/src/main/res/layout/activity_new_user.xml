@@ -15,7 +15,7 @@
         android:layout_gravity="left|top"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
-        android:src="@drawable/mercadApp"
+        android:src="@drawable/mercad_app"
         tools:ignore="RtlHardcoded" />
 
     <TextView
@@ -70,7 +70,7 @@
     <Spinner
         android:id="@+id/listSexo"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_margin="10dp" />
 
     <Button

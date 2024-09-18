@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
-        android:src="@drawable/mercadApp"
+        android:src="@drawable/mercad_app"
         />
 
     <TextView

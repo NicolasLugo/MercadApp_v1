@@ -52,7 +52,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:id="@+id/btnCrear"
+        android:id="@+id/btnIngresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -71,7 +71,7 @@
         android:padding="10dp"
         android:text="@string/nuevo_usuario"
         android:textColor="@android:color/holo_blue_light"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="italic|normal" />
 
 </LinearLayout>

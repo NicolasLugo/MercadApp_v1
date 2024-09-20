@@ -9,6 +9,8 @@
     <string name="historico">Histórico</string>
     <string name="informes">Informes</string>
     <string name="MercadApp">MercadApp</string>
+    <string name="volver">Volver</string>
+
 
     <string-array name="generos">
         <item>Femenino</item>

@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 validarLogin();
             }
         });
+
         btnNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,13 +55,12 @@ public class LoginActivity extends AppCompatActivity {
         if(user.equals(validUser) && passw.equals(validPassw)){
             //Se inicia la nueva actividad si los valores son iguales
             Intent intent = new Intent(this, InicioActivity.class);
-
-            /*usaría esta línea cuando tuviera varios usuarios y así tener un inicio de sesión
-            para cada uno, usando los datos de ingreso para darles la bienvenida
-            intent.putExtra("nombre", user);
-            */
-
+                /*usaría esta línea cuando tuviera varios usuarios y así tener un inicio de sesión
+                para cada uno, usando los datos de ingreso para darles la bienvenida
+                intent.putExtra("nombre", user);
+                */
             startActivity(intent);
+            finish();
         }else{
             //Se muestra un mensaje de error
             Toast.makeText(this,"Datos incorrectos, intente nuevamente", Toast.LENGTH_SHORT).show();

@@ -1,14 +1,18 @@
 package com.example.mercadapp_v1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class InicioActivity extends AppCompatActivity {
 private Button btnInformes;
 private Button btnHistorico;
+private FloatingActionButton newProduct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +21,24 @@ private Button btnHistorico;
 
         btnInformes = findViewById(R.id.btnInformes);
         btnHistorico = findViewById(R.id.btnHistorico);
+        newProduct = findViewById(R.id.floatingActionButton);
 
         btnInformes.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 mostrarInformes();
+            }
+        });
+        btnHistorico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mostrarHistorico();
+            }
+        });
+        newProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoProducto();
             }
         });
 
@@ -35,5 +52,17 @@ private Button btnHistorico;
     }
 
     public void mostrarInformes(){
+        Intent intent = new Intent(this, InformesActivity.class);
+        startActivity(intent);
+    }
+
+    public void mostrarHistorico(){
+        Intent intent = new Intent(this, HistoricoActivity.class);
+        startActivity(intent);
+    }
+
+    public void nuevoProducto(){
+        Intent intent = new Intent(this, NewProductActivity.class);
+        startActivity(intent);
     }
 }

@@ -51,7 +51,7 @@
     <Spinner
         android:id="@+id/listCategoria"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_margin="10dp" />
 
     <EditText

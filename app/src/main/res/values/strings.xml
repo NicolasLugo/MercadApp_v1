@@ -12,11 +12,11 @@
     <string name="volver">Volver</string>
 
 
-    <string-array name="generos">
+    <string-array name="listSexo">
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>
-    <string-array name="categorias">
+    <string-array name="listCategoria">
         <item>Bebida</item>
         <item>Comida</item>
         <item>Ropa</item>

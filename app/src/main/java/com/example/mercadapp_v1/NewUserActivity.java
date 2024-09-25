@@ -3,7 +3,9 @@ package com.example.mercadapp_v1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class NewUserActivity extends AppCompatActivity {
     private Button btnCrear;
     private Button btnCancelar;
+    private Spinner list_sexo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,12 @@ public class NewUserActivity extends AppCompatActivity {
 
         btnCrear = findViewById(R.id.btnCrear);
         btnCancelar = findViewById(R.id.btnCancelar);
+        list_sexo = findViewById(R.id.listSexo);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.listSexo, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        list_sexo.setAdapter(adapter);
 
         btnCrear.setOnClickListener(new View.OnClickListener() {
             @Override

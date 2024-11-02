@@ -13,6 +13,7 @@
 
 
     <string-array name="listSexo">
+        <item> </item>
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>

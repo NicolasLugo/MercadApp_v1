@@ -10,8 +10,8 @@
     tools:ignore="HardcodedText, Autofill">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="left|top"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
@@ -24,7 +24,7 @@
         android:textStyle="bold"
         android:textSize="28sp"
         android:textColor="@color/azul_oscurito"
-        android:padding="15sp"
+        android:padding="7sp"
         android:text="Nuevo usuario"
         android:gravity="center"
         />
@@ -33,52 +33,58 @@
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:hint="Nombres"
+        android:padding="8dp"
         android:inputType="text"
-        android:textSize="24sp"
+        android:textSize="18sp"
         />
 
     <EditText
         android:id="@+id/txtApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
         android:hint="Apellidos"
+        android:padding="8dp"
         android:inputType="text"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/fechaNacimiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:hint="Fecha de Nacimiento"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:hint="Fecha de Nacimiento (YYYY/MM/DD)"
         android:inputType="date"
-        android:textSize="24sp"/>
+        android:textSize="18sp"
+        android:maxLength="10"/>
 
     <EditText
         android:id="@+id/txtCelular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
         android:hint="Teléfono Celular"
         android:inputType="number"
-        android:textSize="24sp"
+        android:textSize="18sp"
         />
 
     <Spinner
         android:id="@+id/listSexo"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp" />
+        android:padding="8dp"
+        android:layout_margin="8dp" />
 
     <Button
         android:id="@+id/btnCrear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:padding="15dp"
+        android:padding="7dp"
         android:text="Crear usuario"
         android:textSize="18sp" />
 
@@ -87,7 +93,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:padding="15dp"
+        android:padding="7dp"
         android:text="Cancelar"
         android:textSize="18sp"/>
 

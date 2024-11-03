@@ -3,8 +3,6 @@ package com.example.mercadapp_v1;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,7 +13,6 @@ import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 
 public class NewUserActivity extends AppCompatActivity {
     private Button btnCrear, btnCancelar;
@@ -33,6 +30,7 @@ public class NewUserActivity extends AppCompatActivity {
         txtNombre = findViewById(R.id.txtNombre);
         txtApellido = findViewById(R.id.txtApellido);
         txtCelular = findViewById(R.id.txtCelular);
+        fechaNacimiento = findViewById(R.id.fechaNacimiento);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.listSexo, android.R.layout.simple_spinner_item);
@@ -52,6 +50,23 @@ public class NewUserActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        fechaNacimiento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewUserActivity.this, DatePickerActivity.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            String fechaSeleccionada = data.getStringExtra("fechaSeleccionada");
+            fechaNacimiento.setText(fechaSeleccionada);
+        }
     }
 
     public void crearUsuario(){
@@ -74,17 +89,25 @@ public class NewUserActivity extends AppCompatActivity {
             statement.bindString(2, apellido);
             statement.bindString(3, fechaNacim);
             statement.bindString(4, celular);
-            statement.bindString(5, sexo);
 
-            statement.execute();
+            if(sexo.equals("Seleccione una opción")){
+                Toast.makeText(this, "Por favor, seleccione una opción válida", Toast.LENGTH_SHORT).show();
+            }else{
+                statement.bindString(5, sexo);
+                statement.execute();
 
-            Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show();
 
-            txtNombre.setText("");
-            txtApellido.setText("");
-            fechaNacimiento.setText("");
-            txtCelular.setText("");
-            list_sexo.setSelection(0);
+                txtNombre.setText("");
+                txtApellido.setText("");
+                fechaNacimiento.setText("");
+                txtCelular.setText("");
+                list_sexo.setSelection(0);
+
+                Intent intent = new Intent(this, ListaUsuarios.class);
+                startActivity(intent);
+                finish();
+            }
         }
         catch (Exception ex)
         {

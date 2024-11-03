@@ -65,8 +65,8 @@ public class LoginActivity extends AppCompatActivity {
             //Se muestra un mensaje de error
             Toast.makeText(this,"Datos incorrectos, intente nuevamente", Toast.LENGTH_SHORT).show();
         }
-
     }
+
     public void nuevoUsuario(){
         Intent intent = new Intent(this, NewUserActivity.class);
         startActivity(intent);

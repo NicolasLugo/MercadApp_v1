@@ -10,10 +10,11 @@
     <string name="informes">Informes</string>
     <string name="MercadApp">MercadApp</string>
     <string name="volver">Volver</string>
+    <string name="usuarios">Usuarios</string>
 
 
     <string-array name="listSexo">
-        <item> </item>
+        <item>Seleccione una opción</item>
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>

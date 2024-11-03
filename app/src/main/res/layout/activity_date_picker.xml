@@ -5,9 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InformesActivity"
     android:orientation="vertical"
-    tools:ignore="MissingConstraints,RtlHardcoded">
+    tools:context=".DatePickerActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,13 +15,19 @@
         android:textSize="28sp"
         android:textColor="@color/azul_oscurito"
         android:padding="10sp"
-        android:text="Informes"
+        android:text="Escoja una fecha"
         android:gravity="center"
         />
 
-    <ListView
-        android:id="@+id/lista_informe"
+    <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="match_parent"
-        android:layout_height="587dp" />
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/seleccionarFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar fecha" />
 
 </LinearLayout>

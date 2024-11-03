@@ -5,25 +5,20 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_historico"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="5dp" />
-
-    <Button
-        android:id="@+id/btnRegresar"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/volver"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/azul_oscurito"
+        android:padding="10sp"
+        android:text="Histórico de productos"
+        android:gravity="center"
         />
+
+    <ListView
+        android:id="@+id/lista_historico"
+        android:layout_width="match_parent"
+        android:layout_height="587dp" />
 
 </LinearLayout>

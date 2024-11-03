@@ -1,15 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ListaUsuarios">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left|top"
+        android:adjustViewBounds="true"
+        android:layout_margin="5dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/mercad_app"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/azul_oscurito"
+        android:padding="10sp"
+        android:text="Lista de Usuarios"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/vacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No hay usuarios para mostrar"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:visibility="gone"/>
 
     <ListView
         android:id="@+id/listaUsuarios"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="501dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnNuevoUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:ignore="ContentDescription"
+        android:layout_marginEnd="15sp"
+        />
+
+</LinearLayout>

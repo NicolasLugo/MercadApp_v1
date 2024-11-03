@@ -9,8 +9,8 @@
     tools:context=".InicioActivity">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="left|top"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
@@ -23,7 +23,7 @@
         android:textStyle="bold"
         android:textSize="28sp"
         android:textColor="@color/azul_oscurito"
-        android:padding="20sp"
+        android:padding="10sp"
         android:text="@string/inicio"
         android:gravity="center"
         />
@@ -32,19 +32,28 @@
         android:id="@+id/btnHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
         android:text="@string/historico"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btnInformes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
         android:text="@string/informes"
-        android:textSize="24sp"/>
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:text="@string/usuarios"
+        android:textSize="20sp"/>
 
     <ImageView
         android:layout_width="330dp"
@@ -59,13 +68,13 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="end"
         android:clickable="true"
+        android:focusable="true"
         android:visibility="visible"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="ContentDescription"
         android:layout_marginEnd="15sp"
-        android:tooltipText="Nuevo Producto"
         />
 
 </LinearLayout>

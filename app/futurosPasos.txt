@@ -1,0 +1,13 @@
+03-nov-24
+hoy mejoré la lógica de la base de datos, así como formateé que la vista de los usuarios muestre un texto
+cuando no haya usuarios creados.
+
+Lo que quedó funcional fue agregar los nuevos usuarios a la base de datos, todavía no verifica inicio de
+sesión con los usuarios creados, falta entonces es que se muestre en el historial los productos comprados,
+la idea es que lo mismo que sale con los usuarios vacíos salga con el historial y los informes vacíos, me
+acabo de dar cuenta que los usuarios creados no tienen contraseña, habría que ver si hay que cambiar la
+tabla para que se ingresen los usuarios con contraseña.
+
+*Establecer texto de histórico vacío y de informes vacío.
+*Validación de login con usuarios creados.
+*Ver si hay que modificar la tabla de los usuarios para agregarle contraseña.

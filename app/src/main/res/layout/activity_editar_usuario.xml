@@ -24,81 +24,97 @@
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Editar Usuarios"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        tools:ignore="HardcodedText" />
-
-    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/id"
-        android:hint="ID"
-        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/azul_oscurito"
+        android:padding="10sp"
+        android:text="Información de usuario"
+        android:gravity="center"
         />
 
     <EditText
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:ems="10"
-         android:id="@+id/et_nombre"
-         android:hint="Nombres" />
+        android:id="@+id/txtId"
+        android:hint="ID"
+        android:textSize="15sp"
+        android:layout_margin="2dp"
+        />
+    <!--android:focusable="false"-->
 
     <EditText
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/et_apellido"
+        android:id="@+id/txtNombre"
+        android:hint="Nombres" />
+
+    <EditText
+        android:layout_margin="2dp"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtApellido"
         android:hint="Apellidos"
         />
 
     <EditText
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:id="@+id/et_edad"
+        android:inputType="date"
+        android:id="@+id/fechaNacimiento"
         android:hint="Fecha de Nacimiento (YYYY/MM/DD)"
+        android:focusable="false"
+        android:maxLength="10"
         />
 
     <EditText
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:id="@+id/celular"
+        android:id="@+id/txtCelular"
         android:hint="Celular"
         />
 
+    <Spinner
+        android:id="@+id/listSexo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:padding="2dp"
+        android:layout_margin="2dp" />
+
     <Button
-        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_editar"
+        android:id="@+id/btnEditar"
         android:text="Editar"
         />
 
     <Button
-        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_eliminar"
+        android:id="@+id/btnEliminar"
         android:text="Eliminar"
         />
 
     <Button
-        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_volver"
+        android:id="@+id/btnVolver"
         android:text="Volver"
         />
-
 </LinearLayout>

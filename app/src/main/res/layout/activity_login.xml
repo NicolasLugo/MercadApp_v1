@@ -24,7 +24,7 @@
         android:textStyle="bold"
         android:textSize="28sp"
         android:textColor="@color/azul_oscurito"
-        android:padding="20sp"
+        android:padding="10sp"
         android:text="@string/login"
         android:gravity="center"
         />

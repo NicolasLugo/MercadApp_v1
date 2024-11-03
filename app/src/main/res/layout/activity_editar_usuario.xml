@@ -14,11 +14,11 @@
     tools:ignore="RtlHardcoded, HardcodedText, TextFields, Autofill">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/widthMercadApp"
+        android:layout_height="@dimen/heightMercadApp"
         android:layout_gravity="left|top"
         android:adjustViewBounds="true"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/marginMercadApp"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
         />
@@ -26,35 +26,29 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="28sp"
-        android:textColor="@color/azul_titulos"
-        android:padding="10sp"
+        style="@style/TextViewTitleStyle"
         android:text="Información de usuario"
         android:gravity="center"
         />
 
     <EditText
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtId"
         android:hint="ID"
-        android:textSize="15sp"
-        android:layout_margin="2dp"
+        android:focusable="false"
         />
-    <!--android:focusable="false"-->
 
     <EditText
-        android:layout_margin="2dp"
-        android:textSize="15sp"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtNombre"
         android:hint="Nombres" />
 
     <EditText
-        android:layout_margin="2dp"
-        android:textSize="15sp"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtApellido"
@@ -62,8 +56,7 @@
         />
 
     <EditText
-        android:layout_margin="2dp"
-        android:textSize="15sp"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
@@ -74,26 +67,22 @@
         />
 
     <EditText
-        android:layout_margin="2dp"
-        android:textSize="15sp"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="number"
         android:id="@+id/txtCelular"
         android:hint="Celular"
         />
 
     <Spinner
+        style="@style/SpinnerStyle"
         android:id="@+id/listSexo"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:padding="2dp"
-        android:layout_margin="2dp" />
+        />
 
     <Button
-        android:textSize="18sp"
-        android:layout_margin="5dp"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnEditar"
@@ -101,8 +90,7 @@
         />
 
     <Button
-        android:textSize="18sp"
-        android:layout_margin="5dp"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnEliminar"
@@ -110,11 +98,11 @@
         />
 
     <Button
-        android:textSize="18sp"
-        android:layout_margin="5dp"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnVolver"
         android:text="Volver"
         />
+
 </LinearLayout>

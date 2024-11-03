@@ -25,6 +25,9 @@
     <style name="TextViewTitleStyle">
         <item name="android:padding">@dimen/paddingTextViewTitles</item>
         <item name="android:textSize">@dimen/textSizeTextViewTitles</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/azul_titulos</item>
+
     </style>
 
     <!-- TextViewNormal -->

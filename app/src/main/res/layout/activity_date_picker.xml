@@ -13,9 +13,9 @@
     tools:context=".DatePickerActivity">
 
     <ImageView
-        android:layout_margin="10dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_margin="@dimen/marginMercadApp"
+        android:layout_width="@dimen/widthMercadApp"
+        android:layout_height="@dimen/heightMercadApp"
         android:layout_gravity="left"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
@@ -25,9 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="@dimen/textSizeTextViewTitles"
         android:textColor="@color/azul_titulos"
-        android:padding="10dp"
+        android:padding="@dimen/paddingTextViewTitles"
         android:text="Escoja una fecha"
         android:gravity="center"
         />
@@ -40,10 +40,9 @@
     <Button
         android:id="@+id/seleccionarFecha"
         android:layout_width="match_parent"
-        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:text="@string/btnCalendario"
-        android:padding="7dp"
-        android:textSize="18sp"/>
+        style="@style/ButtonStyle"
+        />
 
 </LinearLayout>

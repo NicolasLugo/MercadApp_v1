@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Button -->
+    <dimen name="textSizeButton">18sp</dimen>
+    <dimen name="paddingButton">7dp</dimen>
+    <dimen name="marginButton">10dp</dimen>
+
+    <!-- Spinner -->
+    <dimen name="marginSpinner">8dp</dimen>
+    <dimen name="paddingSpinner">8dp</dimen>
+    <dimen name="heightSpinner">48dp</dimen>
+
+    <!-- EditText -->
+    <dimen name="marginEditText">8dp</dimen>
+    <dimen name="paddingEditText">8dp</dimen>
+    <dimen name="textSizeEditText">18sp</dimen>
+
+    <!-- TextViewTitles -->
+    <dimen name="paddingTextViewTitles">10dp</dimen>
+    <dimen name="textSizeTextViewTitles">30sp</dimen>
+
+    <!-- TextViewNormal -->
+    <dimen name="paddingTextViewNormal">10dp</dimen>
+    <dimen name="textSizeTextViewNormal">20sp</dimen>
+
+    <!-- ImageView -->
+    <dimen name="widthMercadApp">50dp</dimen>
+    <dimen name="heightMercadApp">50dp</dimen>
+    <dimen name="marginMercadApp">10dp</dimen>
+</resources>

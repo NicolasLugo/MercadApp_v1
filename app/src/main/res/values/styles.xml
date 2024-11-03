@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button -->
+    <style name="ButtonStyle">
+        <item name="android:textSize">@dimen/textSizeButton</item>
+        <item name="android:padding">@dimen/paddingButton</item>
+        <item name="android:layout_margin">@dimen/marginButton</item>
+    </style>
+
+    <!-- Spinner -->
+    <style name="SpinnerStyle">
+        <item name="android:layout_margin">@dimen/marginSpinner</item>
+        <item name="android:padding">@dimen/paddingSpinner</item>
+        <item name="android:layout_height">@dimen/heightSpinner</item>
+    </style>
+
+    <!-- EditText -->
+    <style name="EditTextStyle">
+        <item name="android:layout_margin">@dimen/marginEditText</item>
+        <item name="android:padding">@dimen/paddingEditText</item>
+        <item name="android:textSize">@dimen/textSizeEditText</item>
+    </style>
+
+    <!-- TextView -->
+    <style name="TextViewTitleStyle">
+        <item name="android:padding">@dimen/paddingTextViewTitles</item>
+        <item name="android:textSize">@dimen/textSizeTextViewTitles</item>
+    </style>
+
+    <!-- TextViewNormal -->
+    <style name="TextViewNormalStyle">
+        <item name="android:padding">@dimen/paddingTextViewNormal</item>
+        <item name="android:textSize">@dimen/textSizeTextViewNormal</item>
+    </style>
+</resources>

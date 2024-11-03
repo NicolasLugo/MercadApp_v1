@@ -1,9 +1,12 @@
 <resources>
     <string name="login">Ingrese sus credenciales</string>
     <string name="aceptar">Aceptar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>
-    <string name="salir">Salir</string>
+    <string name="salir">Cambiar por Cancelar</string>
     <string name="ingresar">Ingresar</string>
+    <string name="crear_usuario">Crear usuario</string>
     <string name="nuevo_usuario">¿Nuevo usuario?</string>
     <string name="inicio">Inicio</string>
     <string name="historico">Histórico</string>
@@ -11,14 +14,55 @@
     <string name="MercadApp">MercadApp</string>
     <string name="volver">Volver</string>
     <string name="usuarios">Usuarios</string>
+    <string name="btnCalendario">Seleccionar fecha</string>
 
+    <!--Estandarización de los elementos de la app-->
+    <!--Botones-->
+    <string name="textSizeButton">18sp</string>
+    <string name="paddingButton">7dp</string>
+    <string name="widthButton">match_parent</string>
+    <string name="heightButton">wrap_content</string>
+    <string name="marginButton">10dp</string>
 
+    <!--Spinners-->
+    <string name="marginSpinner">8dp</string>
+    <string name="paddingSpinner">8dp</string>
+    <string name="heightSpinner">48dp</string>
+    <string name="widthSpinner">match_parent</string>
+
+    <!--EditText-->
+    <string name="marginEditText">8dp</string>
+    <string name="paddingEditText">8dp</string>
+    <string name="heightEditText">wrap_content</string>
+    <string name="widthEditText">match_parent</string>
+    <string name="textSizeEditText">18sp</string>
+
+    <!--TextView Titles-->
+    <string name="paddingTextViewTitles">10dp</string>
+    <string name="heightTextViewTitles">wrap_content</string>
+    <string name="widthTextViewTitles">match_parent</string>
+    <string name="textSizeTextViewTitles">30sp</string>
+
+    <!--TextView Normal-->
+    <string name="paddingTextViewNormal">10dp</string>
+    <string name="heightTextViewNormal">wrap_content</string>
+    <string name="widthTextViewNormal">match_parent</string>
+    <string name="textSizeTextViewNormal">20sp</string>
+
+    <!--ImageView MercadApp-->
+    <string name="widthMercadApp">50dp</string>
+    <string name="heightMercadApp">50dp</string>
+    <string name="marginMercadApp">10dp</string>
+
+    <!--Opciones de los Spinner-->
     <string-array name="listSexo">
         <item>Seleccione una opción</item>
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>
+
     <string-array name="listCategoria">
+        <item>Seleccione una opción</item>
         <item>Bebida</item>
         <item>Comida</item>
         <item>Ropa</item>

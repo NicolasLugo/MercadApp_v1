@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="28sp"
-        android:textColor="@color/azul_oscurito"
+        android:textColor="@color/azul_titulos"
         android:padding="10sp"
         android:text="@string/login"
         android:gravity="center"

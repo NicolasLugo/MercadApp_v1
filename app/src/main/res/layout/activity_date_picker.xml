@@ -3,31 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".DatePickerActivity">
 
+    <ImageView
+        android:layout_margin="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:importantForAccessibility="no"
+        android:src="@drawable/mercad_app"
+        tools:ignore="RtlHardcoded" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textColor="@color/azul_titulos"
-        android:padding="10sp"
+        android:padding="10dp"
         android:text="Escoja una fecha"
         android:gravity="center"
         />
 
     <DatePicker
         android:id="@+id/datePicker"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/seleccionarFecha"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
-        android:text="Seleccionar fecha" />
+        android:text="@string/btnCalendario"
+        android:padding="7dp"
+        android:textSize="18sp"/>
 
 </LinearLayout>

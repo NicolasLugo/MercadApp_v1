@@ -6,14 +6,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Calendar;
 
 public class DatePickerActivity extends AppCompatActivity {
     private DatePicker datePicker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +21,11 @@ public class DatePickerActivity extends AppCompatActivity {
 
         datePicker = findViewById(R.id.datePicker);
         Button seleccionarFecha = findViewById(R.id.seleccionarFecha);
+
+        Calendar calendario = Calendar.getInstance();
+        calendario.add(Calendar.YEAR, -5);
+
+        datePicker.setMaxDate(calendario.getTimeInMillis());
 
         seleccionarFecha.setOnClickListener(new View.OnClickListener() {
             @Override

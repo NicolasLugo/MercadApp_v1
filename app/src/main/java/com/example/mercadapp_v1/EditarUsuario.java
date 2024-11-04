@@ -165,7 +165,7 @@ public class EditarUsuario extends AppCompatActivity {
         }
         catch(Exception e)
         {
-            Toast.makeText(this,"Error no se pudieron guardar los datos.",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Ocurrió un error inesperado.",Toast.LENGTH_LONG).show();
         }
     }
 }

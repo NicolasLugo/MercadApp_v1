@@ -20,7 +20,6 @@
     <dimen name="paddingTextViewTitles">10dp</dimen>
     <dimen name="textSizeTextViewTitles">30sp</dimen>
 
-
     <!-- TextViewNormal -->
     <dimen name="paddingTextViewNormal">10dp</dimen>
     <dimen name="textSizeTextViewNormal">20sp</dimen>

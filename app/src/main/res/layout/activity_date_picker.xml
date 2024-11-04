@@ -3,10 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -19,15 +16,13 @@
         android:layout_gravity="left"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
+        android:background="@drawable/rounded_background"
         tools:ignore="RtlHardcoded" />
 
     <TextView
+        style="@style/TextViewTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="@dimen/textSizeTextViewTitles"
-        android:textColor="@color/azul_titulos"
-        android:padding="@dimen/paddingTextViewTitles"
         android:text="Escoja una fecha"
         android:gravity="center"
         />

@@ -3,26 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InformesActivity"
     android:orientation="vertical"
     tools:ignore="MissingConstraints,RtlHardcoded">
 
+    <ImageView
+        android:layout_margin="@dimen/marginMercadApp"
+        android:layout_width="@dimen/widthMercadApp"
+        android:layout_height="@dimen/heightMercadApp"
+        android:layout_gravity="left"
+        android:importantForAccessibility="no"
+        android:src="@drawable/mercad_app"
+        android:background="@drawable/rounded_background"
+        tools:ignore="RtlHardcoded" />
+
     <TextView
+        style="@style/TextViewTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="28sp"
-        android:textColor="@color/azul_titulos"
-        android:padding="10sp"
         android:text="Informes"
         android:gravity="center"
         />
 
+    <TextView
+        style="@style/TextViewNormalStyle"
+        android:id="@+id/vacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No hay informes para mostrar"
+        android:gravity="center"
+        android:visibility="gone"/>
+
     <ListView
         android:id="@+id/lista_informe"
         android:layout_width="match_parent"
-        android:layout_height="587dp" />
+        android:layout_height="501dp" />
 
 </LinearLayout>

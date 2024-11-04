@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:padding="16dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,92 +11,74 @@
     tools:ignore="HardcodedText, Autofill">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="left|top"
-        android:adjustViewBounds="true"
+        android:layout_margin="@dimen/marginMercadApp"
+        android:layout_width="@dimen/widthMercadApp"
+        android:layout_height="@dimen/heightMercadApp"
+        android:layout_gravity="left"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
+        android:background="@drawable/rounded_background"
         tools:ignore="RtlHardcoded" />
 
     <TextView
+        style="@style/TextViewTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="28sp"
-        android:textColor="@color/azul_titulos"
-        android:padding="10sp"
         android:text="Nuevo Usuario"
         android:gravity="center"
         />
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:hint="Nombres"
-        android:padding="8dp"
-        android:inputType="text"
-        android:textSize="18sp"
-        />
+        android:inputType="textCapWords"/>
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:hint="Apellidos"
-        android:padding="8dp"
-        android:inputType="text"
-        android:textSize="18sp" />
+        android:inputType="textCapWords"/>
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/fechaNacimiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp"
         android:hint="Fecha de Nacimiento (YYYY/MM/DD)"
         android:inputType="date"
-        android:textSize="18sp"
         android:maxLength="10"
         android:focusable="false"/>
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtCelular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp"
         android:hint="Teléfono Celular"
-        android:inputType="number"
-        android:textSize="18sp"
-        />
+        android:inputType="number"/>
 
     <Spinner
+        style="@style/SpinnerStyle"
         android:id="@+id/listSexo"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:padding="8dp"
-        android:layout_margin="8dp" />
+        android:layout_width="match_parent"/>
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/btnCrear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="7dp"
-        android:text="Crear usuario"
-        android:textSize="18sp" />
+        android:text="Crear usuario" />
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/btnCancelar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="7dp"
-        android:text="Cancelar"
-        android:textSize="18sp"/>
+        android:text="Cancelar"/>
 
 </LinearLayout>

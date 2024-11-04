@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:padding="16dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,76 +11,66 @@
     tools:ignore="HardcodedText, Autofill, ContentDescription,UnusedAttribute">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="left|top"
-        android:adjustViewBounds="true"
+        android:layout_margin="@dimen/marginMercadApp"
+        android:layout_width="@dimen/widthMercadApp"
+        android:layout_height="@dimen/heightMercadApp"
+        android:layout_gravity="left"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
+        android:background="@drawable/rounded_background"
         tools:ignore="RtlHardcoded" />
 
     <TextView
+        style="@style/TextViewTitleStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="28sp"
-        android:textColor="@color/azul_titulos"
-        android:padding="10sp"
         android:text="Nuevo Producto"
         android:gravity="center"
         />
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="Nombre"
-        android:inputType="text"
-        android:textSize="24sp"
+        android:inputType="textCapSentences"
         />
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtPrecio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="Precio ($)"
-        android:inputType="numberDecimal"
-        android:textSize="24sp" />
+        android:inputType="numberDecimal"/>
 
     <Spinner
+        style="@style/SpinnerStyle"
         android:id="@+id/listCategoria"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp" />
+        android:layout_width="match_parent"/>
 
     <EditText
+        style="@style/EditTextStyle"
         android:id="@+id/txtObservaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:hint="Observaciones"
-        android:inputType="text|textMultiLine"
-        android:textSize="20sp" />
+        android:inputType="textCapSentences|textMultiLine"/>
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/btnCrear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="15dp"
-        android:text="@string/ingresar"
-        android:textSize="18sp" />
+        android:text="@string/ingresar"/>
 
     <Button
+        style="@style/ButtonStyle"
         android:id="@+id/btnCancelar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:padding="15dp"
-        android:text="@string/cancelar"
-        android:textSize="18sp"/>
+        android:text="@string/cancelar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -90,7 +81,7 @@
         android:focusable="true"
         android:visibility="visible"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_marginEnd="15sp"
+        android:layout_margin="15sp"
         android:tooltipText="Nuevo Producto"
         />
 

@@ -58,9 +58,15 @@ public class ListaUsuarios extends AppCompatActivity {
             adaptador = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, array);
             lista.setAdapter(adaptador);
             final ArrayList<Usuario> list = new ArrayList<Usuario>();
+            final ArrayList<UsuarioSimple> listS = new ArrayList<UsuarioSimple>();
 
             if(c.moveToFirst()){
                 do{
+                    UsuarioSimple usuarioS = new UsuarioSimple();
+                    usuarioS.nombre = c.getString(nombre);
+                    usuarioS.apellido = c.getString(apellido);
+                    listS.add(usuarioS);
+
                     Usuario usuario = new Usuario();
                     usuario.id = c.getString(id);
                     usuario.nombre = c.getString(nombre);
@@ -70,8 +76,7 @@ public class ListaUsuarios extends AppCompatActivity {
                     usuario.sexo = c.getString(sexo);
                     list.add(usuario);
 
-                    array.add(c.getString(id) + "\t" + c.getString(nombre) + "\t" + c.getString(apellido) + "\t" +
-                            c.getString(fechaNacim) + "\t" + c.getString(celular) + "\t" + c.getString(sexo));
+                    array.add(c.getString(nombre) + " " + c.getString(apellido));
 
                 } while(c.moveToNext());
                 adaptador.notifyDataSetChanged();

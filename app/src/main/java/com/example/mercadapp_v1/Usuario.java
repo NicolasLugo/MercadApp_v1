@@ -7,5 +7,6 @@ public class Usuario {
     public String fechaNacimiento;
     public String celular;
     public String sexo;
-}
 
+
+}

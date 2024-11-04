@@ -11,3 +11,22 @@ tabla para que se ingresen los usuarios con contraseña.
 *Establecer texto de histórico vacío y de informes vacío.
 *Validación de login con usuarios creados.
 *Ver si hay que modificar la tabla de los usuarios para agregarle contraseña.
+
+04-nov-24
+POR HACER:
+*Validación de login con usuarios creados.
+*Ver si hay que modificar la tabla de los usuarios para agregarle contraseña.
+*Al agregar un nuevo producto, se cree una nueva tabla en la base de datos.
+*Cuadrar Spinner de productos para que no escoja el "Seleccione una opción" como opción válida
+
+HACIENDO:
+
+POR PROBAR:
+*Crear una clase Producto con sus atributos para poder crear objetos en todo el programa.
+
+HECHO:
+*Agregar diferentes límites al calendario dependiendo de qué activity sea el que lo use.
+*Colocar el texto de lista vacía para las activities que tengan listView.
+*Estandarizar los elementos usando dimens y styles.
+*Establecer texto de histórico vacío y de informes vacío.
+*La lista de usuarios ya solo muestra los nombres y apellidos, si uno le da clic al item de la lista, muestra el resto de los datos.

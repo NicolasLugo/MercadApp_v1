@@ -6,22 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".EditarUsuario"
     android:orientation="vertical"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:padding="16dp"
     android:gravity="center"
     tools:ignore="RtlHardcoded, HardcodedText, TextFields, Autofill">
 
     <ImageView
+        android:layout_margin="@dimen/marginMercadApp"
         android:layout_width="@dimen/widthMercadApp"
         android:layout_height="@dimen/heightMercadApp"
-        android:layout_gravity="left|top"
-        android:adjustViewBounds="true"
-        android:layout_margin="@dimen/marginMercadApp"
+        android:layout_gravity="left"
         android:importantForAccessibility="no"
         android:src="@drawable/mercad_app"
-        />
+        android:background="@drawable/rounded_background"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:layout_width="match_parent"
@@ -45,7 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtNombre"
-        android:hint="Nombres" />
+        android:hint="Nombres"
+        android:inputType="textCapWords"/>
 
     <EditText
         style="@style/EditTextStyle"
@@ -53,7 +51,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtApellido"
         android:hint="Apellidos"
-        />
+        android:inputType="textCapWords"/>
 
     <EditText
         style="@style/EditTextStyle"

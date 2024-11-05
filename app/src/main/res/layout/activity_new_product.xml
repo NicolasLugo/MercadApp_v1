@@ -30,10 +30,19 @@
 
     <EditText
         style="@style/EditTextStyle"
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtNombreMercado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre"
+        android:hint="Nombre mercado"
+        android:inputType="textCapSentences"
+        />
+
+    <EditText
+        style="@style/EditTextStyle"
+        android:id="@+id/txtNombreProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre producto"
         android:inputType="textCapSentences"
         />
 
@@ -44,6 +53,14 @@
         android:layout_height="wrap_content"
         android:hint="Precio ($)"
         android:inputType="numberDecimal"/>
+
+    <EditText
+        style="@style/EditTextStyle"
+        android:id="@+id/txtCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad"
+        android:inputType="number"/>
 
     <Spinner
         style="@style/SpinnerStyle"
@@ -73,7 +90,7 @@
         android:text="@string/cancelar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/btnNewProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

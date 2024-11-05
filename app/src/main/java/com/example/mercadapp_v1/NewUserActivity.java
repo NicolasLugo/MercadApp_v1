@@ -84,10 +84,15 @@ public class NewUserActivity extends AppCompatActivity {
             String hashedPasw = BCrypt.hashpw(passw, BCrypt.gensalt());
 
             SQLiteDatabase db = openOrCreateDatabase("MercadAppBD", Context.MODE_PRIVATE, null);
-            db.execSQL("CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR, apellido VARCHAR, " +
-                    "contrasenia VARCHAR, fechaNacimiento DATE, celular INTEGER, sexo VARCHAR)"); //preferiblemente que la fecha este en formato yyyy/mm/dd
+            db.execSQL("CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "nombre VARCHAR, apellido VARCHAR, " +
+                    "contrasenia VARCHAR, " +
+                    "fechaNacimiento DATE, " +
+                    "celular INTEGER, sexo VARCHAR)"); //preferiblemente que la fecha este en formato yyyy/mm/dd
 
-            String sql = "INSERT INTO usuario(nombre, apellido, contrasenia, fechaNacimiento, celular, sexo) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO usuario(nombre, apellido, contrasenia, fechaNacimiento, celular, sexo)" +
+                    "VALUES (?,?,?,?,?,?)";
+
             SQLiteStatement statement =db.compileStatement(sql);
 
             statement.bindString(1, nombre);

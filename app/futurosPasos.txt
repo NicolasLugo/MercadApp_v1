@@ -30,3 +30,7 @@ HECHO:
 *Estandarizar los elementos usando dimens y styles.
 *Establecer texto de histórico vacío y de informes vacío.
 *La lista de usuarios ya solo muestra los nombres y apellidos, si uno le da clic al item de la lista, muestra el resto de los datos.
+
+05-nov-24
+tengo que revisar la funcionalidad del btnNewProduct y del btnIngresar porque todavia no sé cómo se va a mostrar la información y cómo se
+va a guardar en la base de datos, porque todavía no sé cómo va a relacionarse ambas tablas al agregarse valores.

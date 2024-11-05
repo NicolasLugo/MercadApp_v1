@@ -32,20 +32,26 @@
         android:id="@+id/txtUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="admin"
         android:gravity="center"
         android:hint="Usuario"
-        android:inputType="text"/>
+        android:inputType="textCapWords"/>
 
     <EditText
         style="@style/EditTextStyle"
         android:id="@+id/txtContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
         android:gravity="center"
         android:hint="Contraseña"
         android:inputType="textPassword"/>
+
+    <CheckBox
+        android:id="@+id/checkboxShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Mostrar contraseña"
+        android:alpha="0.5"/>
 
     <Button
         style="@style/ButtonStyle"

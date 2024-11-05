@@ -1,9 +1,11 @@
 package com.example.mercadapp_v1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class InicioActivity extends AppCompatActivity {
 private Button btnInformes, btnHistorico, btnUsuarios;
 private FloatingActionButton newProduct;
+private TextView tvUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ private FloatingActionButton newProduct;
         btnHistorico = findViewById(R.id.btnHistorico);
         btnUsuarios = findViewById(R.id.btnUsuarios);
         newProduct = findViewById(R.id.floatingActionButton);
+        tvUser = findViewById(R.id.tvUser);
 
         btnInformes.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,13 +55,14 @@ private FloatingActionButton newProduct;
             }
         });
 
-        /* esta función la usaría en caso tal de tener diferentes tipos de usuario y poder
-        darles una bienvenida más única, para eso, tendría que tener un textview en blanco en el que pueda
-        colocar el mensaje de bienvenida
-        Intent intent = getIntent();
-        String nombre = intent.getExtras().getString("nombre");
-        -TextView-.setText("Bienvenido, " + nombre);
-        */
+        Intent i = getIntent();
+        String userName = i.getStringExtra("nombreUsuario");
+        if(userName != null && !userName.isEmpty()){
+            tvUser.setText("Bienvenido, " + userName);
+        } else {
+           tvUser.setText("Bienvenido");
+        }
+
     }
 
     public void mostrarInformes(){

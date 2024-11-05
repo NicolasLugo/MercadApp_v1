@@ -50,6 +50,7 @@ public class ListaUsuarios extends AppCompatActivity {
             int id = c.getColumnIndex("id");
             int nombre = c.getColumnIndex("nombre");
             int apellido = c.getColumnIndex("apellido");
+            int passw = c.getColumnIndex("contrasenia");
             int fechaNacim = c.getColumnIndex("fechaNacimiento");
             int celular = c.getColumnIndex("celular");
             int sexo = c.getColumnIndex("sexo");
@@ -71,6 +72,7 @@ public class ListaUsuarios extends AppCompatActivity {
                     usuario.id = c.getString(id);
                     usuario.nombre = c.getString(nombre);
                     usuario.apellido = c.getString(apellido);
+                    usuario.password = "";
                     usuario.fechaNacimiento = c.getString(fechaNacim);
                     usuario.celular = c.getString(celular);
                     usuario.sexo = c.getString(sexo);
@@ -91,6 +93,7 @@ public class ListaUsuarios extends AppCompatActivity {
                     i.putExtra("id",usuario.id);
                     i.putExtra("nombre",usuario.nombre);
                     i.putExtra("apellido",usuario.apellido);
+                    i.putExtra("passw", usuario.password);
                     i.putExtra("fechaNacim",usuario.fechaNacimiento);
                     i.putExtra("celular",usuario.celular);
                     i.putExtra("sexo",usuario.sexo);

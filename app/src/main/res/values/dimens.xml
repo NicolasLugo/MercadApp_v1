@@ -12,8 +12,8 @@
     <dimen name="heightSpinner">48dp</dimen>
 
     <!-- EditText -->
-    <dimen name="marginEditText">8dp</dimen>
-    <dimen name="paddingEditText">8dp</dimen>
+    <dimen name="marginEditText">5dp</dimen>
+    <dimen name="paddingEditText">5dp</dimen>
     <dimen name="textSizeEditText">18sp</dimen>
 
     <!-- TextViewTitles -->

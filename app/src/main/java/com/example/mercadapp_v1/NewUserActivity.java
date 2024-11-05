@@ -11,19 +11,21 @@ import android.widget.Spinner;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.widget.Toast;
+import org.mindrot.jbcrypt.BCrypt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NewUserActivity extends AppCompatActivity {
     private Button btnCrear, btnCancelar;
     private Spinner list_sexo;
-    private EditText txtNombre, txtApellido, fechaNacimiento, txtCelular;
+    private EditText txtNombre, txtApellido, fechaNacimiento, txtCelular, txtContrasena;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_user);
 
+        txtContrasena = findViewById(R.id.txtContrasena);
         btnCrear = findViewById(R.id.btnCrear);
         btnCancelar = findViewById(R.id.btnCancelar);
         list_sexo = findViewById(R.id.listSexo);
@@ -75,36 +77,41 @@ public class NewUserActivity extends AppCompatActivity {
             String nombre = txtNombre.getText().toString();
             String apellido = txtApellido.getText().toString();
             String fechaNacim = fechaNacimiento.getText().toString();
+            String passw = txtContrasena.getText().toString();
             String celular = txtCelular.getText().toString();
             String sexo = list_sexo.getSelectedItem().toString();
 
+            String hashedPasw = BCrypt.hashpw(passw, BCrypt.gensalt());
+
             SQLiteDatabase db = openOrCreateDatabase("MercadAppBD", Context.MODE_PRIVATE, null);
             db.execSQL("CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre VARCHAR, apellido VARCHAR, " +
-                    "fechaNacimiento DATE, celular INTEGER, sexo VARCHAR)"); //preferiblemente que la fecha este en formato yyyy/mm/dd
+                    "contrasenia VARCHAR, fechaNacimiento DATE, celular INTEGER, sexo VARCHAR)"); //preferiblemente que la fecha este en formato yyyy/mm/dd
 
-            String sql = "INSERT INTO usuario(nombre, apellido, fechaNacimiento, celular, sexo) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO usuario(nombre, apellido, contrasenia, fechaNacimiento, celular, sexo) VALUES (?,?,?,?,?,?)";
             SQLiteStatement statement =db.compileStatement(sql);
 
             statement.bindString(1, nombre);
             statement.bindString(2, apellido);
-            statement.bindString(3, fechaNacim);
-            statement.bindString(4, celular);
+            statement.bindString(3, hashedPasw);
+            statement.bindString(4, fechaNacim);
+            statement.bindString(5, celular);
 
             if(sexo.equals("Seleccione una opción")){
                 Toast.makeText(this, "Por favor, seleccione una opción válida", Toast.LENGTH_SHORT).show();
             }else{
-                statement.bindString(5, sexo);
+                statement.bindString(6, sexo);
                 statement.execute();
 
                 Toast.makeText(this, "Usuario agregado exitosamente", Toast.LENGTH_LONG).show();
 
                 txtNombre.setText("");
                 txtApellido.setText("");
+                txtContrasena.setText("");
                 fechaNacimiento.setText("");
                 txtCelular.setText("");
                 list_sexo.setSelection(0);
 
-                Intent intent = new Intent(this, ListaUsuarios.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

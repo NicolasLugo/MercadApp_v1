@@ -27,6 +27,14 @@
         android:gravity="center"
         />
 
+    <TextView
+        android:id="@+id/tvUser"
+        style="@style/TextViewNormalStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        />
+
     <ImageView
         android:layout_width="330dp"
         android:layout_height="260dp"

@@ -11,12 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import org.mindrot.jbcrypt.BCrypt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class EditarUsuario extends AppCompatActivity {
 
-    private EditText txtId, txtNombre, txtApellido, txtCelular, fechaNacimiento;
+    private EditText txtId, txtNombre, txtApellido, txtCelular, fechaNacimiento, txtContrasena;
     private Button btnEditar, btnEliminar, btnVolver;
     private Spinner list_sexo;
 
@@ -25,6 +26,7 @@ public class EditarUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_usuario);
 
+        txtContrasena = findViewById(R.id.txtContrasena);
         txtId = findViewById(R.id.txtId);
         txtNombre = findViewById(R.id.txtNombre);
         txtApellido = findViewById(R.id.txtApellido);
@@ -45,6 +47,7 @@ public class EditarUsuario extends AppCompatActivity {
         String id = intent.getStringExtra("id");
         String nombre = intent.getStringExtra("nombre");
         String apellido = intent.getStringExtra("apellido");
+        String contrasena = intent.getStringExtra("passw");
         String fechaNacim = intent.getStringExtra("fechaNacim");
         String celular = intent.getStringExtra("celular");
         String sexo = intent.getStringExtra("sexo");
@@ -52,6 +55,7 @@ public class EditarUsuario extends AppCompatActivity {
         txtId.setText(id);
         txtNombre.setText(nombre);
         txtApellido.setText(apellido);
+        txtContrasena.setText(contrasena);
         txtCelular.setText(celular);
         fechaNacimiento.setText(fechaNacim);
         if(sexo.equals("Masculino")){
@@ -104,25 +108,29 @@ public class EditarUsuario extends AppCompatActivity {
             String id = txtId.getText().toString();
             String nombre = txtNombre.getText().toString();
             String apellido = txtApellido.getText().toString();
+            String contrasena = txtContrasena.getText().toString();
             String fechaNacim = fechaNacimiento.getText().toString();
             String celular = txtCelular.getText().toString();
             String sexo = list_sexo.getSelectedItem().toString();
 
+            String hashedPassw = BCrypt.hashpw(contrasena, BCrypt.gensalt());
+
             SQLiteDatabase db = openOrCreateDatabase("MercadAppBD", Context.MODE_PRIVATE, null);
-            String sql = "UPDATE usuario set nombre = ?, apellido = ?, fechaNacimiento = ?, celular = ?, sexo = ? WHERE id = ?";
+            String sql = "UPDATE usuario set nombre = ?, apellido = ?, contrasenia = ?, fechaNacimiento = ?, celular = ?, sexo = ? WHERE id = ?";
 
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, nombre);
             statement.bindString(2, apellido);
-            statement.bindString(3, fechaNacim);
-            statement.bindString(4, celular);
+            statement.bindString(3, hashedPassw);
+            statement.bindString(4, fechaNacim);
+            statement.bindString(5, celular);
 
             if(sexo.equals("Seleccione una opción")){
                 Toast.makeText(this, "Por favor, seleccione una opción válida", Toast.LENGTH_SHORT).show();
             }else{
-                statement.bindString(5, sexo);
-                statement.bindString(6, id);
+                statement.bindString(6, sexo);
+                statement.bindString(7, id);
 
                 statement.execute();
 
@@ -131,15 +139,15 @@ public class EditarUsuario extends AppCompatActivity {
                 txtId.setText("");
                 txtNombre.setText("");
                 txtApellido.setText("");
+                txtContrasena.setText("");
                 fechaNacimiento.setText("");
                 txtCelular.setText("");
                 list_sexo.setSelection(0);
 
-                Intent intent = new Intent(this, ListaUsuarios.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
-
         }
         catch (Exception e){
             Toast.makeText(this,"Ocurrió un error al intentar actualizar los datos",Toast.LENGTH_LONG).show();

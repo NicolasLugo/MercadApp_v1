@@ -34,3 +34,8 @@ HECHO:
 05-nov-24
 tengo que revisar la funcionalidad del btnNewProduct y del btnIngresar porque todavia no sé cómo se va a mostrar la información y cómo se
 va a guardar en la base de datos, porque todavía no sé cómo va a relacionarse ambas tablas al agregarse valores.
+
+08-nov-24
+no agrega el nuevo producto a la base de datos, tengo que revisar el codigo a ver si es que lo que no funciona es
+la nueva lógica que quise colocarle para que fuera más organizada, lo voy a intentar como siempre me ha servido,
+como con el nuevo usuario, a ver si el problema es la base de datos o el adaptador.

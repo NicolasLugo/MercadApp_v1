@@ -19,13 +19,13 @@
 
     <!--Opciones de los Spinner-->
     <string-array name="listSexo">
-        <item>Seleccione una opción</item>
+        <item>Género</item>
         <item>Femenino</item>
         <item>Masculino</item>
     </string-array>
 
     <string-array name="listCategoria">
-        <item>Seleccione una opción</item>
+        <item>Tipo de Producto</item>
         <item>Bebida</item>
         <item>Comida</item>
         <item>Ropa</item>

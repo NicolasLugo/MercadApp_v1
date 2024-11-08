@@ -2,56 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ListaUsuarios">
 
-    <ImageView
-        android:layout_margin="@dimen/marginMercadApp"
-        android:layout_width="@dimen/widthMercadApp"
-        android:layout_height="@dimen/heightMercadApp"
-        android:layout_gravity="left"
-        android:importantForAccessibility="no"
-        android:src="@drawable/mercad_app"
-        android:background="@drawable/rounded_background"
-        tools:ignore="RtlHardcoded" />
-
-    <TextView
-        style="@style/TextViewTitleStyle"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lista de Usuarios"
-        android:gravity="center"
-        />
+        android:fillViewport="true">
 
-    <TextView
-        style="@style/TextViewNormalStyle"
-        android:id="@+id/vacio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="No hay usuarios para mostrar"
-        android:gravity="center"
-        android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_margin="@dimen/marginMercadApp"
+                android:layout_width="@dimen/widthMercadApp"
+                android:layout_height="@dimen/heightMercadApp"
+                android:layout_gravity="left"
+                android:importantForAccessibility="no"
+                android:src="@drawable/mercad_app"
+                android:background="@drawable/rounded_background"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                style="@style/TextViewTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lista de Usuarios"
+                android:gravity="center" />
+
+            <TextView
+                style="@style/TextViewNormalStyle"
+                android:id="@+id/vacio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No hay usuarios para mostrar"
+                android:gravity="center"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ListView fuera del ScrollView -->
     <ListView
         android:id="@+id/listaUsuarios"
         android:layout_width="match_parent"
-        android:layout_height="467dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnNuevoUsuario"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="visible"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:ignore="ContentDescription"
-        android:layout_margin="15sp"
-        />
-
+        android:layout_margin="15sp" />
 </LinearLayout>

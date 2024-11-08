@@ -3,12 +3,12 @@
 
     <!-- Button -->
     <dimen name="textSizeButton">18sp</dimen>
-    <dimen name="paddingButton">7dp</dimen>
-    <dimen name="marginButton">10dp</dimen>
+    <dimen name="paddingButton">4dp</dimen>
+    <dimen name="marginButton">4dp</dimen>
 
     <!-- Spinner -->
-    <dimen name="marginSpinner">8dp</dimen>
-    <dimen name="paddingSpinner">8dp</dimen>
+    <dimen name="marginSpinner">5dp</dimen>
+    <dimen name="paddingSpinner">5dp</dimen>
     <dimen name="heightSpinner">48dp</dimen>
 
     <!-- EditText -->

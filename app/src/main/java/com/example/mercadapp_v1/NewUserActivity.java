@@ -26,7 +26,7 @@ public class NewUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_user);
 
         txtContrasena = findViewById(R.id.txtContrasena);
-        btnCrear = findViewById(R.id.btnCrear);
+        btnCrear = findViewById(R.id.btnIngresar);
         btnCancelar = findViewById(R.id.btnCancelar);
         list_sexo = findViewById(R.id.listSexo);
         txtNombre = findViewById(R.id.txtNombre);
@@ -101,7 +101,9 @@ public class NewUserActivity extends AppCompatActivity {
             statement.bindString(4, fechaNacim);
             statement.bindString(5, celular);
 
-            if(sexo.equals("Seleccione una opción")){
+
+
+            if(list_sexo.getSelectedItemPosition() == 0){
                 Toast.makeText(this, "Por favor, seleccione una opción válida", Toast.LENGTH_SHORT).show();
             }else{
                 statement.bindString(6, sexo);
@@ -116,7 +118,7 @@ public class NewUserActivity extends AppCompatActivity {
                 txtCelular.setText("");
                 list_sexo.setSelection(0);
 
-                Intent intent = new Intent(this, LoginActivity.class);
+                Intent intent = new Intent(this, ListaUsuarios.class);
                 startActivity(intent);
                 finish();
             }

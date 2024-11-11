@@ -1,5 +1,6 @@
 package com.example.mercadapp_v1;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -54,6 +55,7 @@ public class NewProductActivity extends AppCompatActivity {
         btnCancelar = findViewById(R.id.btnCancelar);
         list_categoria = findViewById(R.id.listCategoria);
 
+        dbHelper = new DatabaseHelper(this);
         repoProducto = new RepoProducto(dbHelper);
         repoMercado = new RepoMercado(dbHelper);
 
@@ -145,10 +147,8 @@ public class NewProductActivity extends AppCompatActivity {
             String observaciones = txtObservaciones.getText().toString();
             String tipoProd = list_categoria.getSelectedItem().toString();
 
-            repoMercado = new RepoMercado(dbHelper);
-            repoProducto = new RepoProducto(dbHelper);
-
             SQLiteDatabase db = dbHelper.getWritableDatabase();
+
             db.setForeignKeyConstraintsEnabled(true);
 
             db.beginTransaction();
@@ -219,7 +219,6 @@ public class NewProductActivity extends AppCompatActivity {
             }
             actualizarRecyclerView(productos);
             limpiarCampos();
-
         }
         catch (Exception e) {
             Log.e("CargarProductos", "Error al cargar los productos", e);
@@ -242,7 +241,7 @@ public class NewProductActivity extends AppCompatActivity {
 
     public void actualizarRecyclerView(List<Producto> productos) {
         productoAdapter.setProductos(productos);
-        productoAdapter.notifyDataSetChanged();
+        productoAdapter.notifyItemInserted(productos.size() - 1);
     }
 
     public void mostrarHistorico(){
@@ -269,5 +268,4 @@ public class NewProductActivity extends AppCompatActivity {
         dbHelper.close();
         super.onDestroy();
     }
-
 }

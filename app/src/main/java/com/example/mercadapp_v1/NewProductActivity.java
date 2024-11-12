@@ -1,11 +1,8 @@
 package com.example.mercadapp_v1;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDoneException;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +14,7 @@ import android.widget.Toast;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -78,7 +76,7 @@ public class NewProductActivity extends AppCompatActivity {
     btnIngresar.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            mostrarHistorico();
+            ingresarMercado();
         }
     });
 
@@ -86,16 +84,17 @@ public class NewProductActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             cancelarAccion();
-            finish();
         }
-        });
+    });
 
     btnNewProduct.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             agregarProducto();
+            String nombreMercado = txtNombreMerc.getText().toString();
+            cargarProductosDesdeBD(nombreMercado);
         }
-        });
+    });
     }
 
     public void agregarProducto(){
@@ -160,10 +159,9 @@ public class NewProductActivity extends AppCompatActivity {
                 }
 
                 repoProducto.insertarProducto(nombreProd, precio, cantidad, observaciones, tipoProd, nombreMerc, mercadoID);
-
                 db.setTransactionSuccessful();
                 Toast.makeText(this, "Producto agregado correctamente.", Toast.LENGTH_SHORT).show();
-                cargarProductosDesdeBD(nombreMerc);
+                limpiarCampos();
         }
         catch(Exception e){
             Log.e("DBTransaction", "Error durante la transacción", e);
@@ -174,7 +172,6 @@ public class NewProductActivity extends AppCompatActivity {
     }
     catch(Exception e) {
         Toast.makeText(this, "Hubo un problema al agregar el producto. Intente nuevamente.", Toast.LENGTH_LONG).show();
-        Log.e("AgregarProducto", "Error al insertar en la base de datos", e);
     }
 }
 
@@ -185,11 +182,11 @@ public class NewProductActivity extends AppCompatActivity {
     }
 
     public void cargarProductosDesdeBD(String nombreMercado) {
-        SQLiteDatabase db = openOrCreateDatabase("MercadAppBD", Context.MODE_PRIVATE, null);
-
+        SQLiteDatabase db = null;
         Cursor c = null;
-        try {
-            // Realizamos la consulta filtrando por el nombre del mercado
+
+        try{
+            db = dbHelper.getReadableDatabase();
             String query = "SELECT p.nombreProducto, p.precio, p.cantidad " +
                     "FROM producto p " +
                     "JOIN mercado m ON p.nombreMercado = m.nombre " +
@@ -211,23 +208,21 @@ public class NewProductActivity extends AppCompatActivity {
                         double precio = c.getDouble(indexPrecio);
                         int cantidad = c.getInt(indexCantidad);
 
-                        // Creamos el objeto Producto y lo agregamos a la lista
                         Producto producto = new Producto(nombreProducto, precio, cantidad);
                         productos.add(producto);
                     }
                 } while (c.moveToNext());
             }
             actualizarRecyclerView(productos);
-            limpiarCampos();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             Log.e("CargarProductos", "Error al cargar los productos", e);
-        }
-        finally {
+        } finally {
             if (c != null) {
                 c.close();
             }
-            db.close();
+            if (db != null) {
+                db.close();
+            }
         }
     }
 
@@ -236,6 +231,7 @@ public class NewProductActivity extends AppCompatActivity {
         txtPrecio.setText("");
         txtCantidad.setText("");
         txtObservaciones.setText("");
+        list_categoria.setSelection(0);
         txtNombreProd.requestFocus();
     }
 
@@ -244,15 +240,59 @@ public class NewProductActivity extends AppCompatActivity {
         productoAdapter.notifyItemInserted(productos.size() - 1);
     }
 
-    public void mostrarHistorico(){
-        Intent intent = new Intent(this, HistoricoActivity.class);
+    public void mostrarInicio(){
+        Intent intent = new Intent(this, InicioActivity.class);
         startActivity(intent);
     }
 
     private void cancelarAccion() {
-        txtNombreMerc.setEnabled(true);
-        txtNombreMerc.setText("");
-        nombreMercadoEditable = true;
+        if(!nombreMercadoEditable){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(NewProductActivity.this);
+            alerta.setTitle("Confirmar cancelación");
+            alerta.setMessage("¿Está seguro de cancelar la operación? Esto eliminará los datos ingresados");
+
+            alerta.setPositiveButton("Sí",(dialog, which) -> {
+                String nombreMerc = txtNombreMerc.getText().toString();
+                try {
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    String query = "DELETE FROM mercado WHERE nombre = ?";
+                    String query2 = "DELETE FROM producto WHERE nombreMercado = ?";
+                    SQLiteStatement s1 = db.compileStatement(query);
+                    SQLiteStatement s2 = db.compileStatement(query2);
+
+                    s1.bindString(1, nombreMerc);
+                    s2.bindString(1, nombreMerc);
+                    int filasAfectadas = s1.executeUpdateDelete();
+                    int filasAfectadas2 = s2.executeUpdateDelete();
+
+                    if(filasAfectadas >= 1 && filasAfectadas2 >= 1){
+                        Toast.makeText(this,"Datos eliminados de la base de datos.",Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(this, InicioActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                } catch (Exception e){
+                    Toast.makeText(this,"Ocurrió un error inesperado.",Toast.LENGTH_LONG).show();
+                }
+
+                txtNombreMerc.setEnabled(true);
+                txtNombreMerc.setText("");
+                nombreMercadoEditable = true;
+            });
+
+            alerta.setNegativeButton("No", (dialog, which) -> {
+                dialog.dismiss();
+            });
+
+            AlertDialog dialog = alerta.create();
+            Log.d("CancelarAccion", "Mostrando el diálogo de confirmación");
+            dialog.show();
+        } else {
+            Intent intent = new Intent(this, InicioActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private boolean validarCampo(EditText campo, String mensajeError){
@@ -267,5 +307,25 @@ public class NewProductActivity extends AppCompatActivity {
     protected void onDestroy() {
         dbHelper.close();
         super.onDestroy();
+    }
+
+    private void ingresarMercado(){
+        if(!nombreMercadoEditable){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(NewProductActivity.this);
+            alerta.setTitle("Guardar mercado");
+            alerta.setMessage("¿Desea guardar su mercado?");
+            alerta.setPositiveButton("Sí, quiero guardar mi mercado", (dialog, which) -> {
+                Toast.makeText(NewProductActivity.this, "Mercado guardado exitosamente", Toast.LENGTH_SHORT).show();
+                mostrarInicio();
+            });
+
+            alerta.setNegativeButton("Cancelar", (dialog, which) -> {
+                dialog.dismiss();
+            });
+
+            alerta.create().show();
+        } else {
+            Toast.makeText(NewProductActivity.this, "Agregue un producto a la lista", Toast.LENGTH_SHORT).show();
+        }
     }
 }

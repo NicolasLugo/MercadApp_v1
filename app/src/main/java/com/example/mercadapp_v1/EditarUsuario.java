@@ -163,13 +163,17 @@ public class EditarUsuario extends AppCompatActivity {
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, id);
-            statement.execute();
+            int filasAfectadas = statement.executeUpdateDelete();
 
-            Toast.makeText(this,"Datos eliminados de la base de datos.",Toast.LENGTH_LONG).show();
+            if(filasAfectadas >= 1){
+                Toast.makeText(this,"Datos eliminados de la base de datos.",Toast.LENGTH_LONG).show();
 
-            Intent intent = new Intent(this, ListaUsuarios.class);
-            startActivity(intent);
-            finish();
+                Intent intent = new Intent(this, ListaUsuarios.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(this, "No se encontró un registro con el ID proporcionado.", Toast.LENGTH_LONG).show();
+            }
         }
         catch(Exception e)
         {

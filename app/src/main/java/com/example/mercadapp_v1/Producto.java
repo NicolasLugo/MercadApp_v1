@@ -9,15 +9,14 @@ public class Producto {
     private String tipoProducto;
     private String observaciones;
 
+    //este constructor es para la creación de las tablas del recyclerView
     public Producto(String nombreProducto, double precio, int cantidad){
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.cantidad = cantidad;
     }
 
-    public Producto(int idProd, int idMercado, String nombreProducto, double precio, int cantidad, String tipoProducto, String observaciones) {
-        this.idProd = idProd;
-        this.idMercado = idMercado;
+    public Producto(String nombreProducto, double precio, int cantidad, String tipoProducto, String observaciones) {
         this.nombreProducto = nombreProducto;
         this.precio = precio;
         this.cantidad = cantidad;

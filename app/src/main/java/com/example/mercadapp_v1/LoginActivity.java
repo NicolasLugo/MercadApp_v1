@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -19,6 +20,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//import com.google.firebase.Firebase;
+//import com.google.firebase.FirebaseApp;
+
 import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginActivity extends AppCompatActivity {
@@ -27,10 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtUsuario, txtContrasena;
     private Button btnIngresar;
     private CheckBox checkboxShowPassword;
+    //private FirebaseHelper fbh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_login);
 
         txtUsuario = findViewById(R.id.txtUsuario);
@@ -88,6 +94,9 @@ public class LoginActivity extends AppCompatActivity {
             String user = txtUsuario.getText().toString();
             String passw = txtContrasena.getText().toString();
 
+            //FirebaseHelper fhb = new FirebaseHelper(this);
+            //fhb.guardarDatos(user, passw);
+
             SQLiteDatabase db = openOrCreateDatabase("MercadAppBD", Context.MODE_PRIVATE, null);
 
             String sql = "SELECT contrasenia FROM usuario WHERE nombre = ?";
@@ -114,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
         catch(Exception e)
         {
             Toast.makeText(this, "Error al iniciar sesión, intente nuevamente", Toast.LENGTH_SHORT).show();
+            Log.e("ValidarLogin", "Excepción mostrada", e);
         }
     }
 

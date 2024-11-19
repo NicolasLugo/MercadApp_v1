@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "525969133806",
+    "project_id": "mercadapp-252ee",
+    "storage_bucket": "mercadapp-252ee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525969133806:android:be875f429849f7f2b463ff",
+        "android_client_info": {
+          "package_name": "com.example.mercadapp_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpQaMDi6hr3bGEKJwmKzdnnAO-eD1x2UY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +36,12 @@ public class NewProductActivity extends AppCompatActivity {
     private boolean nombreMercadoEditable = true;
     ProductoAdapter productoAdapter = new ProductoAdapter(productos);
     private DatabaseHelper dbHelper;
+    private FirebaseHelper fbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_new_product);
 
         //Identificar todos los elementos del xml
@@ -54,6 +57,7 @@ public class NewProductActivity extends AppCompatActivity {
         list_categoria = findViewById(R.id.listCategoria);
 
         dbHelper = new DatabaseHelper(this);
+        fbHelper = new FirebaseHelper(this);
         repoProducto = new RepoProducto(dbHelper);
         repoMercado = new RepoMercado(dbHelper);
 
@@ -160,7 +164,9 @@ public class NewProductActivity extends AppCompatActivity {
 
                 repoProducto.insertarProducto(nombreProd, precio, cantidad, observaciones, tipoProd, nombreMerc, mercadoID);
                 db.setTransactionSuccessful();
+
                 Toast.makeText(this, "Producto agregado correctamente.", Toast.LENGTH_SHORT).show();
+                enviarFirebase();
                 limpiarCampos();
         }
         catch(Exception e){
@@ -174,6 +180,21 @@ public class NewProductActivity extends AppCompatActivity {
         Toast.makeText(this, "Hubo un problema al agregar el producto. Intente nuevamente.", Toast.LENGTH_LONG).show();
     }
 }
+
+    public void enviarFirebase(){
+        String nombreMerc = txtNombreMerc.getText().toString();
+        String nombreProd = txtNombreProd.getText().toString();
+        double precio = Double.parseDouble(txtPrecio.getText().toString().trim());
+        int cantidad = Integer.parseInt(txtCantidad.getText().toString().trim());
+        String observaciones = txtObservaciones.getText().toString();
+        String tipoProd = list_categoria.getSelectedItem().toString();
+
+        //se prepara el cargue de datos a firebase
+        Producto prod = new Producto(nombreProd, precio, cantidad, tipoProd, observaciones);
+        List<Producto> productoNube = new ArrayList<>();
+        productoNube.add(prod);
+        fbHelper.guardarDatos(nombreMerc, productoNube);
+    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -266,7 +287,7 @@ public class NewProductActivity extends AppCompatActivity {
                     int filasAfectadas2 = s2.executeUpdateDelete();
 
                     if(filasAfectadas >= 1 && filasAfectadas2 >= 1){
-                        Toast.makeText(this,"Datos eliminados de la base de datos.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(this,"Datos eliminados.",Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(this, InicioActivity.class);
                         startActivity(intent);
